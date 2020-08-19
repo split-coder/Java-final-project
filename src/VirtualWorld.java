@@ -100,6 +100,14 @@ public final class VirtualWorld extends PApplet
         }
     }
 
+    public void mousePressed() {
+        Point pressed = mouseToPoint(mouseX, mouseY);
+
+    }
+    private Point mouseToPoint(int x, int y){
+        return  new Point(mouseX/TILE_WIDTH, mouseY/TILE_HEIGHT);
+    }
+
     public static Background createDefaultBackground(ImageStore imageStore) {
         return new Background(DEFAULT_IMAGE_NAME,
                               imageStore.getImageList(DEFAULT_IMAGE_NAME));
