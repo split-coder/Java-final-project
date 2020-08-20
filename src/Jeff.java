@@ -52,16 +52,18 @@ public class Jeff extends AbstractMove{
             ImageStore imageStore,
             EventScheduler scheduler)
     {
-        Optional<Entity> blobTarget = world.findNearest(getPosition(), Vein.class);
+        Optional<Entity> obsta = world.findNearest(getPosition(), Obstacle.class);
         long nextPeriod = this.getActionPeriod();
 
-        if (blobTarget.isPresent()) {
-            Point tgtPos = blobTarget.get().getPosition();
+        if (obsta.isPresent()) {
+            Point tgtPos = obsta.get().getPosition();
 
-            if (this.move(world, blobTarget.get(), scheduler)) {
+            if (this.move(world, obsta.get(), scheduler)) {
 
             }
         }
+
+
 
         scheduler.scheduleEvent(this,
                 Factory.createActivityAction( this, world, imageStore),

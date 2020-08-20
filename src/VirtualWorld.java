@@ -122,7 +122,7 @@ public final class VirtualWorld extends PApplet
     public void mousePressed()
     {
         Point pressed = mouseToPoint(mouseX, mouseY);
-        Jeff jeffery = new Jeff("jeff", pressed, imageStore.getImageList("jeff"), 10000, 10000);
+        Jeff jeffery = new Jeff("jeff", pressed, imageStore.getImageList("jeff"), 1000, 1000);
         if ((world.isOccupied(pressed) ) == false){
             world.addEntity(jeffery);
             scheduler.scheduleActions(jeffery, world, imageStore);
