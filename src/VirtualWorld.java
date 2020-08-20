@@ -118,18 +118,25 @@ public final class VirtualWorld extends PApplet
     public void mousePressed()
     {
         Point pressed = mouseToPoint(mouseX, mouseY);
-        Jeff jeffery = new Jeff("jeff", pressed, imageStore.getImageList("jeff"), 5000, 1000);
+        Jeff jeffery = new Jeff("jeff", pressed, imageStore.getImageList("jeff"), 10000, 10000);
         if ((world.isOccupied(pressed) ) == false){
             world.addEntity(jeffery);
             scheduler.scheduleActions(jeffery, world, imageStore);
         }
-
+        for (int i = pressed.x - 1; i < pressed.x + 2; i++) {
+            for (int j = pressed.y - 1; j < pressed.y + 2; j++) {
+                if (world.withinBounds(new Point(i, j)))
+                    world.setBackgroundCell(new Point(i, j), new AddedBackground("logo", imageStore.getImageList("logo")));
+            }
+        }
+        // add code here
 
     }
 
 
     private Point mouseToPoint(int x, int y){
-        return  new Point(mouseX/TILE_WIDTH, mouseY/TILE_HEIGHT);
+        view.getViewport().viewportToWorld(mouseX/TILE_WIDTH, mouseY/TILE_WIDTH);
+        return  new Point(x/WORLD_ROWS, y/WORLD_COLS);
     }
 
     public static Background createDefaultBackground(ImageStore imageStore) {

@@ -62,7 +62,7 @@ public final class WorldModel
     }
 
     //4
-    private boolean withinBounds(Point pos) {
+    public boolean withinBounds(Point pos) {
         return pos.y >= 0 && pos.y < this.numRows && pos.x >= 0
                 && pos.x < this.numCols;
     }
@@ -138,7 +138,7 @@ public final class WorldModel
     }
 
     //13
-    private void setOccupancyCell(Point pos, Entity entity)
+    public void setOccupancyCell(Point pos, Entity entity)
     {
         this.occupancy[pos.y][pos.x] = entity;
     }
@@ -149,7 +149,7 @@ public final class WorldModel
     }
 
     //15
-    private void setBackgroundCell(Point pos, Background background)
+    public void setBackgroundCell(Point pos, Background background)
     {
         this.background[pos.y][pos.x] = background;
     }
