@@ -1,8 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.List;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
+import java.util.stream.Collectors;
 
 import processing.core.*;
 
@@ -99,19 +98,15 @@ public final class VirtualWorld extends PApplet
             switch (keyCode) {
                 case UP:
                     dy = -1;
-
                     break;
                 case DOWN:
                     dy = 1;
-
                     break;
                 case LEFT:
                     dx = -1;
-
                     break;
                 case RIGHT:
                     dx = 1;
-
                     break;
             }
             view.shiftView(dx, dy);
@@ -133,15 +128,25 @@ public final class VirtualWorld extends PApplet
                     world.setBackgroundCell(new Point(i, j), new AddedBackground("logo", imageStore.getImageList("logo")));
             }
         }
+
         // add code here
+        Optional<Entity> house = world.findNearest(pressed, Blacksmith.class);
+        if (house.isPresent()) {
+            Blacksmith realhouse = ((Blacksmith)(house.get()));
+            Blacksmith finedining = new Blacksmith("805", realhouse.getPosition(), imageStore.getImageList("805"));
+            world.removeEntity(realhouse);
+            scheduler.unscheduleAllEvents(realhouse);
+            world.addEntity(finedining);
+        }
 
     }
 
 
     private Point mouseToPoint(int x, int y){
-      //  view.getViewport().viewportToWorld(mouseX/TILE_WIDTH, mouseY/TILE_HEIGHT);
-        return view.getViewport().viewportToWorld(mouseX/TILE_WIDTH, mouseY/TILE_HEIGHT);
+       return view.getViewport().viewportToWorld(mouseX/TILE_WIDTH, mouseY/TILE_HEIGHT);
+       // return  new Point(x/TILE_WIDTH, y/TILE_HEIGHT);
     }
+
 
     public static Background createDefaultBackground(ImageStore imageStore) {
         return new Background(DEFAULT_IMAGE_NAME,
