@@ -135,8 +135,8 @@ public final class VirtualWorld extends PApplet
 
 
     private Point mouseToPoint(int x, int y){
-        view.getViewport().viewportToWorld(mouseX/TILE_WIDTH, mouseY/TILE_WIDTH);
-        return  new Point(x/WORLD_ROWS, y/WORLD_COLS);
+      //  view.getViewport().viewportToWorld(mouseX/TILE_WIDTH, mouseY/TILE_HEIGHT);
+        return  new Point(x/TILE_WIDTH, y/TILE_HEIGHT);
     }
 
     public static Background createDefaultBackground(ImageStore imageStore) {
