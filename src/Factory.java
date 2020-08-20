@@ -26,6 +26,18 @@ public class Factory {
         return new Blacksmith(id, position, images);
     }
 
+    public static Jeff createJeff(
+            String id,
+            Point position,
+            int actionPeriod,
+            int animationPeriod,
+            List<PImage> images) {
+
+        return new Jeff(id, position, images, actionPeriod, animationPeriod);
+    }
+
+
+
     public static MinerFull createMinerFull(
             String id,
             int resourceLimit,

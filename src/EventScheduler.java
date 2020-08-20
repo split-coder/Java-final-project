@@ -18,6 +18,8 @@ public final class EventScheduler
     public double getTimeScale(){ return timeScale;}
     // Functions below this are all added functions from the functions from the file.
     //1
+
+
     public void scheduleEvent(
             Entity entity,
             Action action,
@@ -35,6 +37,15 @@ public final class EventScheduler
         pending.add(event);
         this.pendingEvents.put(entity, pending);
     }
+
+    public void scheduleActions(EntityActive entity,
+                                WorldModel world, ImageStore imageStore) {
+        this.scheduleEvent(entity, new Activity(entity, world, imageStore), entity.getActionPeriod());
+        if (entity instanceof AnimateEntity)
+            this.scheduleEvent(entity, new Animation((AnimateEntity) entity, world, imageStore,0), ((AnimateEntity) entity).getAnimationPeriod());
+
+    }
+
 
     //2
     public void unscheduleAllEvents(Entity entity)

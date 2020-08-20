@@ -28,6 +28,17 @@ public final class Functions
     public static final int BGND_COL = 2;
     public static final int BGND_ROW = 3;
 
+
+    public static final String JEFF_KEY = "jeff";
+    public static final int JEFF_NUM_PROPERTIES = 7;
+    public static final int JEFF_ID = 1;
+    public static final int JEFF_COL = 2;
+    public static final int JEFF_ROW = 3;
+    public static final int JEFF_LIMIT = 4;
+    public static final int JEFF_ACTION_PERIOD = 5;
+    public static final int JEFF_ANIMATION_PERIOD = 6;
+
+
     public static final String MINER_KEY = "miner";
     public static final int MINER_NUM_PROPERTIES = 7;
     public static final int MINER_ID = 1;
@@ -211,6 +222,30 @@ public final class Functions
 
         return properties.length == MINER_NUM_PROPERTIES;
     }
+
+
+
+
+    public static boolean parseJeff(
+            String[] properties, WorldModel world, ImageStore imageStore)
+    {
+        if (properties.length == JEFF_NUM_PROPERTIES) {
+            Point pt = new Point(Integer.parseInt(properties[JEFF_COL]),
+                    Integer.parseInt(properties[JEFF_ROW]));
+            Entity entity = Factory.createMinerNotFull(properties[JEFF_ID],
+                    Integer.parseInt(
+                            properties[JEFF_LIMIT]),
+                    pt, Integer.parseInt(
+                            properties[JEFF_ACTION_PERIOD]), Integer.parseInt(
+                            properties[JEFF_ANIMATION_PERIOD]),
+                    imageStore.getImageList(JEFF_KEY));
+            world.tryAddEntity(entity);
+        }
+
+        return properties.length == JEFF_NUM_PROPERTIES;
+    }
+
+
 
     // fine to leave later
     public static boolean parseObstacle(

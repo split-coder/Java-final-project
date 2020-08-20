@@ -1,11 +1,25 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 import processing.core.*;
 
 public final class VirtualWorld extends PApplet
+
+
 {
+
+    private static final Random rand = new Random();
+    private static final String JEFF_KEY = "blob";
+    private static final String JEFF_ID_SUFFIX = " -- blob";
+    private static final int JEFF_PERIOD_SCALE = 4;
+    private static final int JEFF_ANIMATION_MIN = 50;
+    private static final int JEFF_ANIMATION_MAX = 150;
+
+
+
     public static final int TIMER_ACTION_PERIOD = 100;
 
     public static final int VIEW_WIDTH = 640;
@@ -100,10 +114,20 @@ public final class VirtualWorld extends PApplet
         }
     }
 
-    public void mousePressed() {
+
+    public void mousePressed()
+    {
         Point pressed = mouseToPoint(mouseX, mouseY);
+        Jeff jeffery = new Jeff("jeff", pressed, imageStore.getImageList("jeff"), 5000, 1000);
+        if ((world.isOccupied(pressed) ) == false){
+            world.addEntity(jeffery);
+            scheduler.scheduleActions(jeffery, world, imageStore);
+        }
+
 
     }
+
+
     private Point mouseToPoint(int x, int y){
         return  new Point(mouseX/TILE_WIDTH, mouseY/TILE_HEIGHT);
     }
