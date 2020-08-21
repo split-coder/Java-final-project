@@ -133,9 +133,10 @@ public final class VirtualWorld extends PApplet
         Optional<Entity> house = world.findNearest(pressed, Blacksmith.class);
         if (house.isPresent()) {
             Blacksmith realhouse = ((Blacksmith)(house.get()));
-            Blacksmith finedining = new Blacksmith("805", realhouse.getPosition(), imageStore.getImageList("805"));
+            NewBlacksmith finedining = new NewBlacksmith("805", realhouse.getPosition(), imageStore.getImageList("805"), 100, 100);
             world.removeEntity(realhouse);
             scheduler.unscheduleAllEvents(realhouse);
+            scheduler.scheduleActions(finedining, world, imageStore);
             world.addEntity(finedining);
         }
 
