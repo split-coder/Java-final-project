@@ -1,0 +1,12 @@
+Welcome to Srirag's and Jack's CalPoly Simulator:
+
+1) How To Trigger The Event
+Start by your mouse to click anywhere in the world to spawn a staging platform(A collection of Cal poly Logo's) to summon Jeffrey Armstrong.
+
+2) What happens when the Event is triggered
+The staging platform is permanently put in the world while the Event also affects the closest Blacksmith to become a OreBlob hungry 805.
+
+What is the New Entity and what does it do
+There are two new entities in this simulation:
+	a. Jeffrey Armstrong: A satirical version of our president who goes around the world hungry for money.
+	b. 805: A morphed Blacksmith going around and eating the oreblobs.
