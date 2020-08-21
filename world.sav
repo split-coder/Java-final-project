@@ -17,7 +17,15 @@ vein vein_33_3 33 3 11101
 vein vein_27_6 27 6 9456
 vein vein_28_23 28 23 13422
 vein vein_34_19 34 19 11702
-vein vein_21_20 21 20 9294
+obstacle obstacle_18_9 18 9
+obstacle obstacle_19_9 19 9
+obstacle obstacle_20_9 20 9
+obstacle obstacle_18_10 18 10
+obstacle obstacle_19_10 19 10
+obstacle obstacle_20_10 20 10
+obstacle obstacle_18_11 18 11
+obstacle obstacle_19_11 19 11
+obstacle obstacle_20_11 20 11
 obstacle obstacle_5_20 5 20
 obstacle obstacle_7_21 7 21
 obstacle obstacle_12_22 12 22
