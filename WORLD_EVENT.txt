@@ -10,3 +10,7 @@ What is the New Entity and what does it do
 There are two new entities in this simulation:
 	a. Jeffrey Armstrong: A satirical version of our president who goes around the world hungry for money.
 	b. 805: A morphed Blacksmith going around and eating the oreblobs.
+
+Jack's contribution: Worked a majority on Jeff 
+Srirag's contribution: Worked a majority on 805 
+Both of us however helped eachother along the way.
