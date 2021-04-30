@@ -1,2 +1,1 @@
-# 203-final-project
-Lets get thiss
+Miner simulation game
